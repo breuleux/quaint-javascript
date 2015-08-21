@@ -1,0 +1,26 @@
+
+require: vm
+
+globals:
+   quack
+
+quack = 3333
+
+class JavaScriptEvaluator:
+   constructor{@store = Object.create{global}} =
+      @ctx = vm.create-context{@store}
+   eval{code, env = {=}, loc = null} =
+      @store &: env
+      vm.run-in-context{code, @ctx}
+   setenv{key, value} =
+      @store[key] = value
+   fork{} =
+      JavaScriptEvaluator with
+         Object.create{@store}
+
+provide:
+   JavaScriptEvaluator
+
+provide{@, sandbox = Object.create{global}} =
+   @evaluator = JavaScriptEvaluator{sandbox}
+
