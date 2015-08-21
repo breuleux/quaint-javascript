@@ -45,3 +45,26 @@ describe "quaint integration":
    it "declare and use variables":
       assert @q.translate{"{var a = 6 + 6}Twelve is {a}", .html} === "Twelve is 12"
 
+   it "declare and use macros":
+      assert @q.translate{"{function foo() {return 'x';}}[foo::]", .html} === "x"
+      assert @q.translate{s, .html}.trim{} === "<sup>x</sup>" where s = """
+      {
+         function sup(engine, body) {
+            return ENode(['sup'], {}, [engine.gen(body)]);
+         }
+      }
+      sup :: x
+      """
+
+   it "h function":
+      assert @q.translate{s, .html}.trim{} === result where
+         s = """
+         {
+            function sup(engine, body) {
+               return h('div', {id: 'important'}, h('sup.cls', engine.gen(body), 'X'));
+            }
+         }
+         sup :: _x
+         """
+         result =
+            '<div id="important"><sup class="cls"><em>x</em>X</sup></div>'

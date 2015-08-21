@@ -1,13 +1,13 @@
 
 require: vm
 
-globals:
-   quack
-
-quack = 3333
-
 class JavaScriptEvaluator:
    constructor{@store = Object.create{global}} =
+      @setenv{"h", h} where h{tag, match props, *children} =
+         {tags => _, props => _, children => _} or String? or Number? or Boolean? ->
+            h{tag, {=}, props, *children}
+         else ->
+            ENode{tag.split{R"(?=\W)"}, props, children}
       @ctx = vm.create-context{@store}
    eval{code, env = {=}, loc = null} =
       @store &: env
