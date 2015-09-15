@@ -21,6 +21,11 @@ class JavaScriptEvaluator:
 provide:
    JavaScriptEvaluator
 
-provide{@, sandbox = Object.create{global}} =
-   @evaluator = JavaScriptEvaluator{sandbox}
+main{*match} =
+   {[@] and {is-quaint-engine => true?}, options = {=}} ->
+      @evaluator = JavaScriptEvaluator{options.sandbox or Object.create{global}}
+   {options = {=}} ->
+      {@} -> main{@, options}
+
+provide = main
 
