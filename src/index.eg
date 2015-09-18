@@ -8,10 +8,10 @@ class JavaScriptEvaluator:
             h{tag, {=}, props, *children}
          else ->
             ENode{tag.split{R"(?=\W)"}, props, children}
-      @ctx = vm.create-context{@store}
+      @store and @ctx = vm.create-context{@store}
    eval{code, env = {=}, loc = null} =
       @store &: env
-      vm.run-in-context{code, @ctx}
+      vm.run-in-context{code, @store}
    setenv{key, value} =
       @store[key] = value
    fork{} =
