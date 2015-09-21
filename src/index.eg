@@ -15,8 +15,10 @@ class JavaScriptEvaluator:
    setenv{key, value} =
       @store[key] = value
    fork{} =
-      JavaScriptEvaluator with
+      JavaScriptEvaluator{
          Object.create{@store}
+         @vm
+      }
 
 provide:
    JavaScriptEvaluator
