@@ -8,6 +8,23 @@ Expressions in curly brackets will be evaluated in JavaScript.
 
 ## Usage
 
+### Command-line
+
+```bash
+$ npm install quaint-javascript
+$ quaint -p javascript file.q
+```
+
+### Quaint
+
+```
+plugins :: javascript
+
+2 + 2 is {2 + 2}
+```
+
+### JavaScript
+
 ```javascript
 var quaint = require("quaint");
 var qjs = require("quaint-javascript");
@@ -18,7 +35,9 @@ q.toHTML("2 + 3 = {2 + 3}")
 // ==> "2 + 3 = 5"
 ```
 
-In the JavaScript code, you can use the `h` function to create HTML
+## Functionality
+
+In embedded JavaScript, you can use the `h` function to create HTML
 elements programmatically:
 
 ```javascript
