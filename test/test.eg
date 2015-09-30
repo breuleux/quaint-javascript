@@ -10,7 +10,7 @@ require-macros:
 require:
    ../src as qjs ->
       JavaScriptEvaluator
-   quaint -> create
+   quaint
 
 
 
@@ -33,7 +33,7 @@ describe "JavaScriptEvaluator":
 describe "quaint integration":
 
    before-each:
-      @q = quaint.create{qjs}
+      @q = quaint{qjs}
       @q.setenv{"a", 555}
 
    it "simple expressions":
