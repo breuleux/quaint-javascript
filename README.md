@@ -56,13 +56,17 @@ An object to use as the global object for `eval`. All the properties
 you set on that object will be available as top level variables in
 scripts.
 
+### `transform`
+
+A function to use to preprocess the code before evaluating it. This
+could be a compiler, for example.
+
 ### `vm`
 
 The module to use for the virtualization (defaults to the standard
 `vm` module, so you usally won't have to set it).
 
-Still, this can be handy if you want to preprocess the code before
-evaluating it. The module must implement these two methods:
+The module must implement these two methods:
 
 * **vm.createContext(sandbox)**: "contextify" the object, i.e. make it
   into a proper environment for the evaluator. If you implement your

@@ -26,7 +26,7 @@ describe "JavaScriptEvaluator":
       assert @je.eval{"parseFloat('6.7')"} === 6.7
 
    it "accepts custom context":
-      je = JavaScriptEvaluator{{ziff = 777}}
+      je = JavaScriptEvaluator{sandbox = {ziff = 777}}
       assert je.eval{"ziff - 7"} === 770
 
 
