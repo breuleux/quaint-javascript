@@ -16,11 +16,7 @@ class JavaScriptEvaluator:
       if @transform:
          code = @transform{code}
       @sandbox &: env
-      match @vm.run-in-context{code, @sandbox} as r:
-         Function? ->
-            null
-         else ->
-            r
+      @vm.run-in-context{code, @sandbox}
    setenv{key, value} =
       @sandbox[key] = value
    fork{} =
