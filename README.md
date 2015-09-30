@@ -42,7 +42,7 @@ elements programmatically:
 
 ```javascript
 q.toHTML("{h('a.cls#id', {href: 'there'}, 'A', 'B')}")
-'<a href="there" id="id" class="cls">AB</a>'
+// ==> '<a href="there" id="id" class="cls">AB</a>'
 
 q.toHTML("{[1, 2, 3].map(function (x) { return h('b', x); })}")
 // ==> "<b>1</b><b>4</b><b>9</b>"
