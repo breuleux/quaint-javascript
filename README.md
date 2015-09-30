@@ -2,7 +2,10 @@
 quaint-javascript
 =================
 
-Allows inline JavaScript code in Quaint markup.
+Allows inline JavaScript code in
+[Quaint](http://breuleux.github.io/quaint)
+markup.
+
 
 Expressions in curly brackets will be evaluated in JavaScript.
 
