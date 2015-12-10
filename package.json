@@ -9,6 +9,7 @@
   },
   "keywords": [
     "quaint",
+    "quaint-plugin",
     "quaintlang",
     "javascript"
   ],
@@ -22,7 +23,7 @@
     "earlgrey": ">=0.0.12",
     "mocha": "^2.2.1",
     "earl-mocha": ">=0.0.2",
-    "quaint": ">=0.0.8"
+    "quaint": ">=0.0.13"
   },
   "scripts": {
     "refresh": "earl compile -5vso lib/ src/",

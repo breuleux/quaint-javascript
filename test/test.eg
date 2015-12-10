@@ -37,27 +37,27 @@ describe "quaint integration":
       @q.setenv{"a", 555}
 
    it "simple expressions":
-      assert @q.translate{"1 + 1 = {1 + 1}", .html} === "1 + 1 = 2"
+      assert @q.toHTML{"1 + 1 = {1 + 1}"} === "1 + 1 = 2"
 
    it "more complicated expressions":
-      assert @q.translate{"{var a = 6 + 6; a}", .html} === "12"
+      assert @q.toHTML{"{var a = 6 + 6; a}"} === "12"
 
    it "declare and use variables":
-      assert @q.translate{"{var a = 6 + 6}Twelve is {a}", .html} === "Twelve is 12"
+      assert @q.toHTML{"{var a = 6 + 6}Twelve is {a}"} === "Twelve is 12"
 
    it "declare and use macros":
-      assert @q.translate{"{function foo() {return 'x';}}[foo::]", .html} === "x"
-      assert @q.translate{s, .html}.trim{} === "<sup>x</sup>" where s = """
+      assert @q.toHTML{"{function foo() {return 'x';}}[foo::]"} === "x"
+      assert @q.toHTML{s}.trim{} === "<sup>x</sup>" where s = """
       {
          function sup(engine, body) {
-            return ENode(['sup'], {}, [engine.gen(body)]);
+            return h('sup', {}, engine.gen(body));
          }
       }
       sup :: x
       """
 
    it "h function":
-      assert @q.translate{s, .html}.trim{} === result where
+      assert @q.toHTML{s}.trim{} === result where
          s = """
          {
             function sup(engine, body) {
