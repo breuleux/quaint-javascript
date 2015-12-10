@@ -1,7 +1,7 @@
 {
   "name": "quaint-javascript",
   "description": "Embed JavaScript in Quaint markup",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "format": "cjs",
   "repository": {
     "type": "git",
