@@ -6,27 +6,21 @@ Allows inline JavaScript code in
 [Quaint](http://breuleux.github.io/quaint)
 markup.
 
-
 Expressions in curly brackets will be evaluated in JavaScript.
+
+
+## Install
+
+    quaint --setup javascript
+
 
 ## Usage
 
-### Command-line
-
-```bash
-$ npm install quaint-javascript
-$ quaint -p javascript file.q
 ```
-
-### Quaint
-
-```
-plugins :: javascript
-
 2 + 2 is {2 + 2}
 ```
 
-### JavaScript
+### API
 
 ```javascript
 var quaint = require("quaint");
@@ -34,7 +28,7 @@ var qjs = require("quaint-javascript");
 
 var q = quaint(qjs);
 
-q.toHTML("2 + 3 = {2 + 3}")
+q.toHTML("2 + 3 = {2 + 3}");
 // ==> "2 + 3 = 5"
 ```
 
