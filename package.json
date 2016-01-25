@@ -1,7 +1,7 @@
 {
   "name": "quaint-javascript",
   "description": "Embed JavaScript in Quaint markup",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "format": "cjs",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
   "keywords": [
     "quaint",
     "quaint-plugin",
-    "quaintlang",
+    "quaint-language",
     "javascript"
   ],
   "author": "Olivier Breuleux",
@@ -23,7 +23,7 @@
     "earlgrey": ">=0.0.12",
     "mocha": "^2.2.1",
     "earl-mocha": ">=0.0.2",
-    "quaint": ">=0.0.13"
+    "quaint": ">=0.0.14"
   },
   "scripts": {
     "refresh": "earl compile -5vso lib/ src/",
